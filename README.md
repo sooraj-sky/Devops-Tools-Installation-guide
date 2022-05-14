@@ -17,18 +17,18 @@ As of this writing, the latest release is go1.16.7. To install Go on an Ubuntu s
 Now that you have your link ready, first confirm that you’re in the home directory:
 
 ``` 
-cd ~ 
+$ cd ~ 
 ```
 
 Then use curl to retrieve the tarball, making sure to replace the highlighted URL with the one you just copied. The -O flag ensures that this outputs to a file, and the L flag instructs HTTPS redirects, since this link was taken from the Go website and will redirect here before the file downloads:
 
 ```
-curl -OL https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
+ $ curl -OL https://golang.org/dl/go1.16.7.linux-amd64.tar.gz
 ```
 
 To verify the integrity of the file you downloaded, run the sha256sum command and pass it to the filename as an argument:
 ```
-sha256sum go1.16.7.linux-amd64.tar.gz
+$ sha256sum go1.16.7.linux-amd64.tar.gz
 ```
 This will return the tarball’s SHA256 checksum:
 ```
@@ -39,7 +39,7 @@ If the checksum matches the one listed on the downloads page, you’ve done this
 
 Next, use tar to extract the tarball. This command includes the -C flag which instructs tar to change to the given directory before performing any other operations. This means that the extracted files will be written to the /usr/local/ directory, the recommended location for installing Go… The x flag tells tarto extract, v tells it we want verbose output (a listing of the files being extracted), and f tells it we’ll specify a filename:
 ```
-sudo tar -C /usr/local -xvf go1.16.7.linux-amd64.tar.gz
+$ sudo tar -C /usr/local -xvf go1.16.7.linux-amd64.tar.gz
 ```
 Although /usr/local/go is the recommended location for installing Go, some users may prefer or require different paths.
 
@@ -50,7 +50,7 @@ First, set Go’s root value, which tells Go where to look for its files. You ca
 
 Use your preferred editor to open .profile, which is stored in your user’s home directory. Here, we’ll use nano:
 ```
-sudo nano ~/.profile
+ $ sudo nano ~/.profile
 ```
 Then, add the following information to the end of your file:
 sudo nano ~/.profile
@@ -63,11 +63,11 @@ After you’ve added this information to your profile, save and close the file. 
 
 Next, refresh your profile by running the following command:
 ```
-source ~/.profile
+$ source ~/.profile
 ```
 After, check if you can execute go commands by running go version:
 ```
-go version
+$ go version
 ```
 This command will output the release number of whatever version of Go is installed on your system:
 ```
