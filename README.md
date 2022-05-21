@@ -169,7 +169,7 @@ Browse to http://localhost:8080 (or whichever port you configured for Jenkins wh
 The command: sudo cat /var/lib/jenkins/secrets/initialAdminPassword will print the password at console.
 
 
-# 4. kubectl
+# 5. kubectl
 The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the kubectl reference documentation.
 
 kubectl is installable on a variety of Linux platforms, macOS and Windows
@@ -198,7 +198,7 @@ Test to ensure the version you installed is up-to-date:
 ```
 $ kubectl version --client
 ```
-# 5. MicroK8s
+# 6. MicroK8s
 MicroK8s is a CNCF certified upstream Kubernetes deployment that runs entirely on your workstation or edge device. Being a snap it runs all Kubernetes services natively (i.e. no virtual machines) while packing the entire set of libraries and binaries needed. Installation is limited by how fast you can download a couple of hundred megabytes and the removal of MicroK8s leaves nothing behind.
 
 Install via Snap :
@@ -217,7 +217,7 @@ Start using Kubernetes
 ```
 $ microk8s kubectl get all --all-namespaces
 ```
-# 6. minikube
+# 7. minikube
 minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
 
 All you need is Docker (or similarly compatible) container or a Virtual Machine environment, and Kubernetes is a single command away: minikube start
@@ -232,7 +232,7 @@ Start your cluster
 ```
 $ minikube start
 ```
-# 7. Kompose
+# 8. Kompose
 Kompose is a conversion tool for Docker Compose to container orchestrators such as Kubernetes (or OpenShift).
 
 A deb package is released for compose. Download latest package in the assets in github releases.
@@ -242,7 +242,7 @@ $ wget https://github.com/kubernetes/kompose/releases/download/v1.26.1/kompose_1
 $ sudo apt install ./kompose_1.26.1_amd64.deb
 
 ```
-# 8. Helm
+# 9. Helm
 Helm is a Kubernetes deployment tool for automating creation, packaging, configuration, and deployment of applications and services to Kubernetes clusters. 
 
 Helm now has an installer script that will automatically grab the latest version of Helm and install it locally.
@@ -253,7 +253,7 @@ $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scr
 $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 ```
-# 9. Ansible
+# 10. Ansible
 Ansible is an open-source software provisioning, configuration management, and application-deployment tool enabling infrastructure as code. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Microsoft Windows.
 
 Install
@@ -266,7 +266,7 @@ $ sudo apt install software-properties-common
 $ sudo add-apt-repository --yes --update ppa:ansible/ansible
 $ sudo apt install ansible
 ```
-# 10. Terraform
+# 11. Terraform
 Terraform is an open-source infrastructure as code software tool created by HashiCorp. Users define and provide data center infrastructure using a declarative configuration language known as HashiCorp Configuration Language, or optionally JSON.
 
 To install Terraform, find the appropriate package for your system and download it as a zip archive.
@@ -301,7 +301,7 @@ Add any subcommand to terraform -help to learn more about what it does and avail
 ```
 $ terraform -help plan
 ```
-# 11. AWS Command Line Interface
+# 12. AWS Command Line Interface
 The AWS Command Line Interface (CLI) is a unified tool to manage your AWS services. With just one tool to download and configure, you can control multiple AWS services from the command line and automate them through scripts.
 
 The AWS CLI v2 offers several new features including improved installers, new configuration options such as AWS Single Sign-On (SSO), and various interactive features. 
@@ -310,7 +310,7 @@ Install or update the AWS CLI
 ```
 $ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" unzip awscliv2.zip sudo ./aws/install
 ```
-# 12. gcloud CLI
+# 13. gcloud CLI
 The Google Cloud CLI is a set of tools to create and manage Google Cloud resources. You can use these tools to perform many common platform tasks from the command line or through scripts and other automation.
 
 download the Linux 64-bit archive file, at the command line, run:
