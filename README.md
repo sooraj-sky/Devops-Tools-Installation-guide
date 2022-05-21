@@ -132,6 +132,43 @@ Test the installation.
 ```
 $ docker-compose --version
 ```
+
+# 4. Install Jenkins
+The recommended Docker image to use is the Official jenkins/jenkins image (from the Docker Hub repository). This image contains the current Long-Term Support (LTS) release of Jenkins (which is production-ready). However this image doesn’t have docker CLI inside it and is not bundled with frequently used Blue Ocean plugins and features. This means that if you want to use the full power of Jenkins and Docker you may want to go through described below installation process.
+
+Open up a terminal window.
+
+1. Create a bridge network in Docker using the following docker network create command:
+```
+$ docker network create jenkins
+```
+2. In order to execute Docker commands inside Jenkins nodes, download and run the docker:dind Docker image using the following docker run command:
+```
+$ docker run \
+  --name jenkins-docker \
+  --rm \
+  --detach \
+  --privileged \
+  --network jenkins \
+  --network-alias docker \
+  --env DOCKER_TLS_CERTDIR=/certs \
+  --volume jenkins-docker-certs:/certs/client \
+  --volume jenkins-data:/var/jenkins_home \
+  --publish 2376:2376 \
+  docker:dind \
+  --storage-driver overlay2
+```
+After downloading, installing and running, the post-installation setup wizard begins.
+
+This setup wizard takes you through a few quick "one-off" steps to unlock Jenkins, customize it with plugins and create the first administrator user through which you can continue accessing Jenkins.
+
+Unlocking Jenkins
+When you first access a new Jenkins instance, you are asked to unlock it using an automatically-generated password.
+
+Browse to http://localhost:8080 (or whichever port you configured for Jenkins when installing it) and wait until the Unlock Jenkins page appears.
+The command: sudo cat /var/lib/jenkins/secrets/initialAdminPassword will print the password at console.
+
+
 # 4. kubectl
 The Kubernetes command-line tool, kubectl, allows you to run commands against Kubernetes clusters. You can use kubectl to deploy applications, inspect and manage cluster resources, and view logs. For more information including a complete list of kubectl operations, see the kubectl reference documentation.
 
